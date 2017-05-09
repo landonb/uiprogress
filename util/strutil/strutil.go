@@ -3,6 +3,7 @@ package strutil
 
 import (
 	"bytes"
+	"fmt"
 	"time"
 )
 
@@ -59,3 +60,14 @@ func PrettyTime(t time.Duration) string {
 	}
 	return (t - (t % time.Second)).String()
 }
+
+func PrettyTimeNormal(t time.Duration) string {
+	if t == 0 {
+		return "---"
+	}
+	if t < 60 * time.Second {
+		return fmt.Sprintf("%.1fs", t.Seconds())
+	}
+	return (t - (t % time.Second)).String()
+}
+

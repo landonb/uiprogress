@@ -233,5 +233,13 @@ func (b *Bar) TimeElapsed() time.Duration {
 
 // TimeElapsedString returns the formatted string represenation of the time elapsed
 func (b *Bar) TimeElapsedString() string {
-	return strutil.PrettyTime(b.TimeElapsed())
+	//return strutil.PrettyTime(b.TimeElapsed())
+	return strutil.PrettyTimeNormal(b.TimeElapsed())
 }
+
+func (b *Bar) TimeElapsedUpdate() {
+	b.mtx.RLock()
+	defer b.mtx.RUnlock()
+	b.timeElapsed = time.Since(b.TimeStarted)
+}
+
