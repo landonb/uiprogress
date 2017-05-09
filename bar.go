@@ -216,7 +216,12 @@ func (b *Bar) String() string {
 
 // CompletedPercent return the percent completed
 func (b *Bar) CompletedPercent() float64 {
-	return (float64(b.Current()) / float64(b.Total)) * 100.00
+	pct := (float64(b.Current()) / float64(b.Total)) * 100.00
+	if pct > 99 && pct < 100 {
+		// Hang out at 99, otherwise display rounds up and says 100% though not done.
+		pct = 99
+	}
+	return pct
 }
 
 // CompletedPercentString returns the formatted string representation of the completed percent
