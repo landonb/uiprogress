@@ -134,7 +134,7 @@ uiprogress.Stop()
 ## Installation
 
 ```sh
-$ go get -v github.com/gosuri/uiprogress
+$ go get -v github.com/landonb/uiprogress
 ```
 ## Todos
 
@@ -143,4 +143,4 @@ $ go get -v github.com/gosuri/uiprogress
 
 ## License
 
-uiprogress is released under the MIT License. See [LICENSE](https://github.com/gosuri/uiprogress/blob/master/LICENSE).
+uiprogress is released under the MIT License. See [LICENSE](https://github.com/landonb/uiprogress/blob/master/LICENSE).
